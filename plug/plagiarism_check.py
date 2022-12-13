@@ -409,7 +409,7 @@ class PlagiarismChecker:
         return float(result)
     
     # checking every sentance where have similerities or not if then take in an array then the array will return
-    def santenceSimilarity(self, text1, text2):
+    def sentenceSimilarity(self, text1, text2):
         similer_text = []
         for i in range(0,len(text1)):
             for j in range(0,len(text2)):
