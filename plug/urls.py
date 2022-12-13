@@ -4,6 +4,6 @@ from plug import views
   
 urlpatterns = [
     path('text-plagiarism/',
-         views.checkPlagiarism,
+         views.twoTextPlagiarismCheck,
          name = 'plag-check'),
 ]
