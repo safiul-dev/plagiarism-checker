@@ -5,4 +5,4 @@ class ImageConverter:
     def convert(self, image): 
 
         text = pytesseract.image_to_string(Image.open(image), lang="ben")
-        return text
+        return text.replace('\n', ' ')
