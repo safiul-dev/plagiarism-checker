@@ -423,7 +423,7 @@ class PlagiarismChecker:
         return similer_text 
 
     def remove_all_unneeded_key (self, text):
-        terminator = [" ", "”", "“", ","]
+        terminator = [" ", "”", "“", ",", "."]
         temp = text
         final_text = ''
         for ter in terminator:

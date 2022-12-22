@@ -10,8 +10,9 @@ def googleSearch(request):
     
     if (request.method == 'POST'):
 
-        copied_content="মিষ্টির দোকান থেকে দই কিনে রাস্তা দিয়ে হাঁটছি এমন সময় এক গাড়ী পুলিশ এসে দাঁড়ালো আমার সামনে।"
 
+        text = request.POST['text']
         google_obj = GooglePlagiarismCheck()
-        data = google_obj.searchGoogle(copied_content)
-        return Response(data)
+        if text:
+            data = google_obj.plag_check(text)
+            return Response(data)
