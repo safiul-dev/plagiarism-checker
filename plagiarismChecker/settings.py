@@ -58,7 +58,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
@@ -126,10 +126,15 @@ WSGI_APPLICATION = 'plagiarismChecker.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+
+     'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'plagiarism_checker',  
+        'USER': 'root',  
+        'PASSWORD': 'admin',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',    
+    }  
 }
 
 
