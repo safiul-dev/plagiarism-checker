@@ -1,20 +1,22 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes,parser_classes
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import JSONParser
 from .textGoogleMatch import GooglePlagiarismCheck
 
 @csrf_exempt
 @api_view(["POST"])
-def googleSearch(request):
+@parser_classes([JSONParser])
+def googleSearch(request, format=None):
     
     if (request.method == 'POST'):
 
-        text = request.POST.get('text') 
+        data = request.data['text']
         google_obj = GooglePlagiarismCheck()
-        # data = google_obj.plag_check(text)
-        return Response(text, status=200)
+        data = google_obj.plag_check(data)
+        return Response(data, status=200)
 
 
 @csrf_exempt
