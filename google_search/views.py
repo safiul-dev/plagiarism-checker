@@ -17,7 +17,7 @@ def googleSearch(request, format=None):
         data = request.data['text']
         word_tokenize_data = word_tokenize(data)
         
-        if len(word_tokenize_data) <= 50:
+        if len(word_tokenize_data) <= 80:
 
             google_obj = GooglePlagiarismCheck()
             data = google_obj.plag_check(data)
