@@ -42,28 +42,12 @@ class GooglePlagiarismCheck:
                     text2 = google_obj['description']
                     plag_result = plag_obj.levenshtein(t, text2)
                     percent = 0
-                    if plag_result >= 70 :
+                    if plag_result >= 50 :
                         percent = 100
                         result.append({
                             "percent": percent,
                             "url": google_obj['url'],
                             "text": t
                         })
-                    elif 50 <= plag_result < 70:
-                        percent = 70 
-                        result.append({
-                            "percent": percent,
-                            "url": google_obj['url'],
-                            "text": t
-                        }) 
-
-                    
-                    # if plag_result > 70 :
-                    #     result.append({
-                    #         "percent": percent,
-                    #         "url": google_obj['url'],
-                    #         "text": t
-                    #     })
-        
         return result
                 

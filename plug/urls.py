@@ -9,5 +9,10 @@ urlpatterns = [
 
     path('two-pdf-plagiarism-check/',
         views.twoPdfPlagiarismCheck,
-        name= 'two-plagiarism-check')
+        name= 'two-plagiarism-check'),
+
+    path('multi-pdf-plagiarism-check/',
+        views.multiplePdfPlagiarismCheck,
+        name= 'multi-plagiarism-check')
+
 ]

@@ -423,7 +423,7 @@ class PlagiarismChecker:
         return similer_text 
 
     def remove_all_unneeded_key (self, text):
-        terminator = [" ", "”", "“", ",", "."]
+        terminator = [" ", "”", "“", ",", ".", "।"]
         temp = text
         final_text = ''
         for ter in terminator:
@@ -463,7 +463,7 @@ class PlagiarismChecker:
     
     # text plugCheck
     def plugCheckFromTextArray(self, textArray1, textArray2):
-        similer_text = self.santenceSimilarity(textArray1, textArray2)
+        similer_text = self.sentenceSimilarity(textArray1, textArray2)
         percentage = self.percentageOfText(textArray1, textArray2)
         return [similer_text, percentage];
                     
