@@ -13,6 +13,10 @@ urlpatterns = [
 
     path('multi-pdf-plagiarism-check/',
         views.multiplePdfPlagiarismCheck,
-        name= 'multi-plagiarism-check')
+        name= 'multi-plagiarism-check'),
+
+    path('one-to-many-pdf-plagiarism-check/',
+        views.oneToManyPdfPlagiarismCheck,
+        name= 'one-to-many-pdf-plagiarism-check')
 
 ]

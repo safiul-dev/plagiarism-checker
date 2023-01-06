@@ -27,7 +27,6 @@ def twoTextPlagiarismCheck(request):
         return Response(arrayOfResult, status=200)
 
 
-
 @api_view(["POST"])
 @parser_classes([MultiPartParser,FormParser,JSONParser])
 def twoPdfPlagiarismCheck(request):
@@ -56,3 +55,16 @@ def multiplePdfPlagiarismCheck(request):
         res = multi_file_instance.multiFilePlugCheck()
         
         return Response(res, status=200)
+
+@api_view(["POST"])
+@parser_classes([MultiPartParser,FormParser,JSONParser])
+def oneToManyPdfPlagiarismCheck(request):
+    
+    if (request.method == 'POST'):
+        file = request.data.getlist('file')
+        files = request.data.getlist('files')
+        single_pdf_text = PdfConverter.converter(file)
+        multiple_file_instance = MultiFile(files)
+        plag_result = multiple_file_instance.single_file_to_multifile_plug_check(single_pdf_text, file.name) 
+        
+        return Response(plag_result, status=200)
