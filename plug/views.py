@@ -22,8 +22,7 @@ def twoTextPlagiarismCheck(request):
         text2 = b_nltk.sentence_tokenizer(doc2)
         
         arrayOfResult = plagiarism_obj.plugCheckFromTextArray(text1, text2)
-        # dic = {'text':arrayOfResult[0], 'percent': arrayOfResult[1]}
-        
+
         return Response(arrayOfResult, status=200)
 
 

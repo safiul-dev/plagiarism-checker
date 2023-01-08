@@ -402,7 +402,6 @@ class PlagiarismChecker:
         str1 = self.remove_all_unneeded_key(text1)
         str2 = self.remove_all_unneeded_key(text2)
         diff = nl.edit_distance(str1, str2)
-
         result = (1-(diff/max(len(str1), len(str2))))*100
         result = "{:.2f}".format(result)  # taking two decimal place value only
 
@@ -423,8 +422,10 @@ class PlagiarismChecker:
         return similer_text 
 
     def remove_all_unneeded_key (self, text):
-        terminator = [" ", "”", "“", ",", ".", "।"]
-        temp = text
+        terminator = [" ", "”", "“", ",", ".", "।", "\n"]
+        text = text.split(" ")
+        join_text = ""
+        temp = join_text.join([i for i in text if i not in self.bangla_stopwords])
         final_text = ''
         for ter in terminator:
             final_text = temp.replace(ter, "")
