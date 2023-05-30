@@ -3,7 +3,7 @@
 <br />
 <div align="center">
 
-  <h3 align="center">Bangla Assignment Plagiarism Checker</h3>
+  <h3 align="center">Bangla Assignment Plagiarism Checker (api's)</h3>
 
   <p align="center">
     Only for bengali language Plagiarism checker tools for pdf and text
